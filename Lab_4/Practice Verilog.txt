@@ -1,0 +1,10 @@
+Practice Verilog
+
+Full Adder
+MUX
+DEMUX
+Encoder
+Decoder
+Code Converters
+3:8 decoder
+Comparator
