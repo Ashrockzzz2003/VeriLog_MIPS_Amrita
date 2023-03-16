@@ -1,0 +1,92 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x55b0cfc393d0 .scope module, "pr_1" "pr_1" 2 1;
+ .timescale 0 0;
+L_0x55b0cfc60a90 .functor NOT 1, v0x55b0cfc5ff00_0, C4<0>, C4<0>, C4<0>;
+L_0x55b0cfc60b20 .functor NOT 1, v0x55b0cfc5fe60_0, C4<0>, C4<0>, C4<0>;
+L_0x55b0cfc60bf0 .functor NOT 1, v0x55b0cfc5fda0_0, C4<0>, C4<0>, C4<0>;
+L_0x55b0cfc60cc0 .functor NOT 1, v0x55b0cfc5fcc0_0, C4<0>, C4<0>, C4<0>;
+L_0x55b0cfc60dc0 .functor BUFZ 1, v0x55b0cfc5ff00_0, C4<0>, C4<0>, C4<0>;
+L_0x55b0cfc60e60 .functor AND 1, L_0x55b0cfc60a90, v0x55b0cfc5fe60_0, C4<1>, C4<1>;
+L_0x55b0cfc60fb0 .functor AND 1, v0x55b0cfc5ff00_0, L_0x55b0cfc60b20, C4<1>, C4<1>;
+L_0x55b0cfc61070 .functor OR 1, L_0x55b0cfc60e60, L_0x55b0cfc60fb0, C4<0>, C4<0>;
+L_0x55b0cfc611d0 .functor AND 1, L_0x55b0cfc60b20, v0x55b0cfc5fda0_0, C4<1>, C4<1>;
+L_0x55b0cfc61290 .functor AND 1, v0x55b0cfc5fe60_0, L_0x55b0cfc60bf0, C4<1>, C4<1>;
+L_0x55b0cfc613b0 .functor OR 1, L_0x55b0cfc611d0, L_0x55b0cfc61290, C4<0>, C4<0>;
+L_0x55b0cfc61470 .functor AND 1, L_0x55b0cfc60bf0, v0x55b0cfc5fcc0_0, C4<1>, C4<1>;
+L_0x55b0cfc615a0 .functor AND 1, v0x55b0cfc5fda0_0, L_0x55b0cfc60cc0, C4<1>, C4<1>;
+L_0x55b0cfc61660 .functor OR 1, L_0x55b0cfc61470, L_0x55b0cfc615a0, C4<0>, C4<0>;
+v0x55b0cfc5fcc0_0 .var "B0", 0 0;
+v0x55b0cfc5fda0_0 .var "B1", 0 0;
+v0x55b0cfc5fe60_0 .var "B2", 0 0;
+v0x55b0cfc5ff00_0 .var "B3", 0 0;
+v0x55b0cfc5ffc0_0 .net "D0", 0 0, L_0x55b0cfc61660;  1 drivers
+v0x55b0cfc600d0_0 .net "D1", 0 0, L_0x55b0cfc613b0;  1 drivers
+v0x55b0cfc60190_0 .net "D2", 0 0, L_0x55b0cfc61070;  1 drivers
+v0x55b0cfc60250_0 .net "D3", 0 0, L_0x55b0cfc60dc0;  1 drivers
+v0x55b0cfc60310_0 .net "not_b0", 0 0, L_0x55b0cfc60cc0;  1 drivers
+v0x55b0cfc603d0_0 .net "not_b1", 0 0, L_0x55b0cfc60bf0;  1 drivers
+v0x55b0cfc60490_0 .net "not_b2", 0 0, L_0x55b0cfc60b20;  1 drivers
+v0x55b0cfc60550_0 .net "not_b3", 0 0, L_0x55b0cfc60a90;  1 drivers
+v0x55b0cfc60610_0 .net "w1", 0 0, L_0x55b0cfc60e60;  1 drivers
+v0x55b0cfc606d0_0 .net "w2", 0 0, L_0x55b0cfc60fb0;  1 drivers
+v0x55b0cfc60790_0 .net "w3", 0 0, L_0x55b0cfc611d0;  1 drivers
+v0x55b0cfc60850_0 .net "w4", 0 0, L_0x55b0cfc61290;  1 drivers
+v0x55b0cfc60910_0 .net "w5", 0 0, L_0x55b0cfc61470;  1 drivers
+v0x55b0cfc609d0_0 .net "w6", 0 0, L_0x55b0cfc615a0;  1 drivers
+S_0x55b0cfc39560 .scope begin, "$ivl_for_loop0" "$ivl_for_loop0" 2 33, 2 33 0, S_0x55b0cfc393d0;
+ .timescale 0 0;
+v0x55b0cfc39740_0 .var/i "i", 31 0;
+    .scope S_0x55b0cfc393d0;
+T_0 ;
+    %vpi_call 2 30 "$display", "B3 B2 B1 B0 | D3 D2 D1 D0" {0 0 0};
+    %vpi_call 2 31 "$display", "------------|------------" {0 0 0};
+    %fork t_1, S_0x55b0cfc39560;
+    %jmp t_0;
+    .scope S_0x55b0cfc39560;
+t_1 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x55b0cfc39740_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v0x55b0cfc39740_0;
+    %cmpi/s 16, 0, 32;
+    %jmp/0xz T_0.1, 5;
+    %load/vec4 v0x55b0cfc39740_0;
+    %parti/s 1, 3, 3;
+    %store/vec4 v0x55b0cfc5ff00_0, 0, 1;
+    %load/vec4 v0x55b0cfc39740_0;
+    %parti/s 1, 2, 3;
+    %store/vec4 v0x55b0cfc5fe60_0, 0, 1;
+    %load/vec4 v0x55b0cfc39740_0;
+    %parti/s 1, 1, 2;
+    %store/vec4 v0x55b0cfc5fda0_0, 0, 1;
+    %load/vec4 v0x55b0cfc39740_0;
+    %parti/s 1, 0, 2;
+    %store/vec4 v0x55b0cfc5fcc0_0, 0, 1;
+    %delay 12, 0;
+    %vpi_call 2 39 "$display", "%b  %b  %b  %b  | %b  %b  %b  %b", v0x55b0cfc5ff00_0, v0x55b0cfc5fe60_0, v0x55b0cfc5fda0_0, v0x55b0cfc5fcc0_0, v0x55b0cfc60250_0, v0x55b0cfc60190_0, v0x55b0cfc600d0_0, v0x55b0cfc5ffc0_0 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x55b0cfc39740_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x55b0cfc39740_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %end;
+    .scope S_0x55b0cfc393d0;
+t_0 %join;
+    %vpi_call 2 42 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "pr_1.v";
