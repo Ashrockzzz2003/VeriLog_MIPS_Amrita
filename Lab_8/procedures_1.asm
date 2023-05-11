@@ -32,6 +32,11 @@ main:
 
     # Move result to $t0
     sw $t0, result
+
+    # Print output message
+    li $v0, 4
+    la $a0, output
+    syscall
     
     # Print result
     lw $a0, result
@@ -39,12 +44,7 @@ main:
     move $a0, $t0
     syscall
 
-    # Print output message
-    li $v0, 4
-    la $a0, output
-    syscall
-
-    # Print result
+    # return 0
     li $v0, 10
     syscall
 .end main
